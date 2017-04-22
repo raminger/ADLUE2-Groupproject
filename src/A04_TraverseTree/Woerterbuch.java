@@ -1,14 +1,18 @@
 package A04_TraverseTree;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
 public class Woerterbuch {
+	
 
 	/**
 	 * Wurzel des Baums (Startknoten)
 	 */
 	private Wort root;
+	private int count=1;
+	private Set<String> setprefix = new HashSet<>();
 	
 	public Wort getRoot() {
 		return root;
@@ -20,8 +24,18 @@ public class Woerterbuch {
 	 * @return Zahl der Woerter (=Anzahl der Elemente)
 	 */
 	public int countWordsInSubTree(Wort w) {
-		
-		return 0;
+		if(w==null){
+			return 0;
+		}
+		if (w.getLeft()!=null){
+			count++;
+			countWordsInSubTree(w.getLeft());
+		}
+		if(w.getRight()!=null){
+			count++;
+			countWordsInSubTree(w.getRight());
+		}
+		return count;
 	}
 
 	/**
@@ -30,10 +44,23 @@ public class Woerterbuch {
 	 * @return Menge aller zutreffenden Woerter
 	 */
 	public Set<String> getWordsWithPrefix(String prefix) {
-		
-		return null;
+		getWordsWithPrefix(prefix, root);
+		return setprefix;
 	}
 	
+	public void getWordsWithPrefix(String prefix,Wort w){
+		if(prefix.startsWith(w.getWort())){
+			setprefix.add(w.getWort());
+		}
+		if (w.getLeft()!=null){
+			getWordsWithPrefix(prefix,w.getLeft());
+		}
+		if(w.getRight()!=null){
+			
+			getWordsWithPrefix(prefix,w.getRight());
+		}
+		
+	}
 
 	/**
 	 * Neues Wort hinzufuegen
@@ -56,7 +83,7 @@ public class Woerterbuch {
 				}
 				w = w.getLeft();
 			}
-			else if (vgl > 0) {		// Neues Wort ist lexikographisch groeßer
+			else if (vgl > 0) {		// Neues Wort ist lexikographisch groeï¿½er
 				if (w.getRight() == null) {
 					w.setRight(neu);
 					neu.setParent(w);
