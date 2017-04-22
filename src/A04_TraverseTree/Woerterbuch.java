@@ -3,7 +3,7 @@ package A04_TraverseTree;
 import java.util.Set;
 
 
-public class Wörterbuch {
+public class Woerterbuch {
 
 	/**
 	 * Wurzel des Baums (Startknoten)
@@ -15,9 +15,9 @@ public class Wörterbuch {
 	}
 
 	/**
-	 * Zählt alle Wörter des Teilbaums ab einem bestimmten Wort
+	 * Zaehlt alle Woerter des Teilbaums ab einem bestimmten Wort
 	 * @param w Wort
-	 * @return Zahl der Wörter (=Anzahl der Elemente)
+	 * @return Zahl der Woerter (=Anzahl der Elemente)
 	 */
 	public int countWordsInSubTree(Wort w) {
 		
@@ -25,9 +25,9 @@ public class Wörterbuch {
 	}
 
 	/**
-	 * Liefert die Menge aller Wörter retour, die ein spezifisches Präfix haben.
-	 * @param prefix Wörter müssen diesen Präfix haben
-	 * @return Menge aller zutreffenden Wörter
+	 * Liefert die Menge aller Woerter retour, die ein spezifisches Praefix haben.
+	 * @param prefix Woerter muessen diesen Praefix haben
+	 * @return Menge aller zutreffenden Woerter
 	 */
 	public Set<String> getWordsWithPrefix(String prefix) {
 		
@@ -36,8 +36,8 @@ public class Wörterbuch {
 	
 
 	/**
-	 * Neues Wort hinzufügen
-	 * @param wort Hinzuzufügendes Wort
+	 * Neues Wort hinzufuegen
+	 * @param wort Hinzuzufuegendes Wort
 	 */
 	public void add(String wort) {
 		Wort neu = new Wort(wort);
@@ -56,7 +56,7 @@ public class Wörterbuch {
 				}
 				w = w.getLeft();
 			}
-			else if (vgl > 0) {		// Neues Wort ist lexikographisch größer
+			else if (vgl > 0) {		// Neues Wort ist lexikographisch groeßer
 				if (w.getRight() == null) {
 					w.setRight(neu);
 					neu.setParent(w);
