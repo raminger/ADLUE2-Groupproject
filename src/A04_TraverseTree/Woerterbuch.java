@@ -49,7 +49,7 @@ public class Woerterbuch {
 	}
 	
 	public void getWordsWithPrefix(String prefix,Wort w){
-		if(w.getWort().startsWith(prefix)){
+		if(prefix.startsWith(w.getWort())){
 			setprefix.add(w.getWort());
 		}
 		if (w.getLeft()!=null){
