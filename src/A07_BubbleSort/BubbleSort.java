@@ -8,20 +8,23 @@ public class BubbleSort implements PersonenSort {
 	 */
 	public void sort(Person[] personen) {
 
-		Person[] array = new Person[personen.length];
+		Person[] array = personen;
+		Person p ;
 		
 		
 		boolean change = true;
 		
 		while(change){
-			
+			change=false;
 			for (int i = 0; i < array.length-1; i++) {
-				Person p = array[i];
-				
-				int test = array[i].compareTo(p);
-				if(test==-1){
+				if ( array[i].compareTo(array[i++])==1){
+					p = array[i];
+					array[i] = array[i++];
+					array[i++]=p;
+					change = true;
 					
 				}
+				
 			}
 			
 		}
