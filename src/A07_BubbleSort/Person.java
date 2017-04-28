@@ -24,15 +24,27 @@ public class Person {
 	 * @return <0, wenn a<b || =0, wenn a=b || >0, wenn a>b
 	 */
 	public int compareTo(Person p) {
-		
-		int erg = nachname.compareTo(p.nachname);
-		
-		if (erg == 0){
-			erg = vorname.compareTo(p.vorname);
 			
+		int bla = stringCompare(this.nachname, p.getNachname());
+		
+		if (bla == 0)
+			bla = stringCompare(this.vorname, p.getVorname());
+		
+		return bla;
+	}
+	
+	private int stringCompare(String a, String b)
+	{
+		for (int i = 0; i < a.length(); i++) {
+			char value1 = a.charAt(i);
+			char value2 = b.charAt(i);
+			
+			if (value1 > value2)
+				return 1;
+			else if (value1 < value2)
+				return -1;
 		}
 		
-		return erg;
-		
+		return 0;
 	}
 }
