@@ -48,8 +48,8 @@ public class Woerterbuch {
 		return setprefix;
 	}
 	
-	public void getWordsWithPrefix(String prefix,Wort w){	//Ina: Glaube wir haben zuerst unser prefix aufgerufen, und das Wort damit vergleichen, statt Wort aufrufen und das mitn Prefix vergleichen
-		if(w.getWort().startsWith(prefix)){					//bitte um Kontrolle, Idee von Ina! laut JUnit is alles grün!
+	public void getWordsWithPrefix(String prefix,Wort w){
+		if(w.getWort().startsWith(prefix)){
 			setprefix.add(w.getWort());
 		}
 		if (w.getLeft()!=null){
