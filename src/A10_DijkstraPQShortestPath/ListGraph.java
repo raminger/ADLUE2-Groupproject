@@ -2,21 +2,28 @@ package A10_DijkstraPQShortestPath;
 import java.util.ArrayList;
 import java.util.List;
 
+import A10_DijkstraPQShortestPath.WeightedEdge;
+
 public class ListGraph implements Graph {
 
 	private ArrayList<WeightedEdge>[] graph;
 	private int numVertices;
 	private boolean directed;
 	
+	
 	@SuppressWarnings("unchecked")
-	public ListGraph(int numVertices, boolean directed) {
-		graph = new ArrayList[numVertices];
-		for (int i=0; i < numVertices; i++)
-			graph[i] = new ArrayList<WeightedEdge>();
+	public ListGraph(int numVertices, boolean directed) 
+	{
 		this.numVertices = numVertices;
 		this.directed = directed;
+	//Create Arraylist
+		graph = new ArrayList[numVertices];
+		//Create ArrayList in each Array position to get a 2D Array
+		for (int i=0; i < numVertices; i++)
+			graph[i] = new ArrayList<WeightedEdge>();
+		
 	}
-	
+		
 	public int numVertices() {
 		return numVertices;
 	}
@@ -56,7 +63,12 @@ public class ListGraph implements Graph {
 	}
 
 	public void removeEdge(int u, int v) {
-		// TODO
+		for (WeightedEdge we: graph[u]) {
+			if (we.to_vertex == v) {
+				graph[u].remove(v);
+				break;
+			}
+		}
 	}
 
 	public List<WeightedEdge> getEdges(int v) {
