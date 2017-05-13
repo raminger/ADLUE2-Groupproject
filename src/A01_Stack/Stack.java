@@ -6,8 +6,8 @@ public class Stack<T> {
 	private int count = 0;
 
 	/**
-	 * Oberstes Element entfernen und zur�ckliefern.
-	 * Existiert kein Element, wird eine Exception ausgel�st.
+	 * Oberstes Element entfernen und zurückliefern.
+	 * Existiert kein Element, wird eine Exception ausgelöst.
 	 *
 	 * @throws StackEmptyException
 	 */
@@ -16,25 +16,26 @@ public class Stack<T> {
 		if (first == null) {
 			throw new StackEmptyException();
 		}
-		Node<T> help = first;
+
+		Node<T> tmp = first;
 		first = first.getNext();
 		count--;
-		return (T) help.getData();
+
+		return (T) tmp.getData();
 	}
 
 	/**
-	 * �bergebenen T auf Stack (als oberstes Element) speichern.
+	 * Übergebenen T auf Stack (als oberstes Element) speichern.
 	 *
 	 * @param i data
 	 */
 	public void push(T i) {
-		Node<T> help = new Node(i);
+		Node<T> tmp = new Node(i);
 		if (first == null) {
-			first = help;
-
+			first = tmp;
 		} else {
-			help.setNext(first);
-			first = help;
+			tmp.setNext(first);
+			first = tmp;
 		}
 
 		count++;
