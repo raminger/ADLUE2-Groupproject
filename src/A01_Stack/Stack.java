@@ -18,7 +18,14 @@ public class Stack<T> {
 		}
 
 		Node<T> tmp = first;
-		first = first.getNext();
+
+		if (count > 1)
+		{
+			first = first.getNext();
+		} else {
+			first = null;
+		}
+
 		count--;
 
 		return (T) tmp.getData();
