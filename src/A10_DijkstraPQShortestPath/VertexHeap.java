@@ -147,6 +147,4 @@ public class VertexHeap {
 		}
 		return false;
 	}
-
-
 }

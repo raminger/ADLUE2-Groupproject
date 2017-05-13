@@ -9,13 +9,10 @@ public class ArrayGraph implements Graph {
 	private int numVertices;
 	private boolean directed;
 	
-	List<WeightedEdge> weList;
-	
 	public ArrayGraph(int numVertices, boolean directed) {
 		graph = new int[numVertices][numVertices];
 		this.numVertices = numVertices;
 		this.directed = directed;
-		weList = new ArrayList<WeightedEdge>();
 	}
 	
 	public int numVertices() {
@@ -40,21 +37,14 @@ public class ArrayGraph implements Graph {
 	
 	public void addEdge(int u, int v, int weight) {
 		// TODO
-		graph[u][v] = weight;
 	}
 
 	public void removeEdge(int u, int v) {
-		graph[u][v] = 0;
+		// TODO
 	}
 
 	public List<WeightedEdge> getEdges(int v) {
 		// TODO
-		List<WeightedEdge> resultEdges = new ArrayList<WeightedEdge>();
-		for (WeightedEdge edge : weList) {
-			if (edge.getTo_vertex() == v) {
-				resultEdges.add(edge);
-			}
-		}
-		return resultEdges;
+		return null;
 	}
 }

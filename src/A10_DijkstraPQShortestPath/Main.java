@@ -18,9 +18,8 @@ public class Main {
 		g.addEdge(3, 7,  1);
 		g.addEdge(5, 6,  3);
 
-		
 		DijkstraPQShortestPath dfs = new DijkstraPQShortestPath(g);
-		List<Integer> way = dfs.findWay(0, 6);
+		List<Integer> way = dfs.findWay(0, 7);
 		printWay(way);
 
 	}
@@ -34,8 +33,6 @@ public class Main {
 			if (i != 0)
 				System.out.print(" -> ");
 			System.out.print(way.get(i));
-			
-			
 		}
 	}
 }
